@@ -11,7 +11,7 @@ valid_causes = ['extension', 'browser', 'malware', 'other']
 required_fields = ['cause', 'title', 'description']
 
 for filename in glob.glob(rule_dir):
-    temp_required_fields = required_fields
+    temp_required_fields = required_fields.copy()
     print('[i] Processing {}...'.format(filename), end='')
     with open(os.path.join(os.getcwd(), filename), 'r') as f:
         rule = {}
