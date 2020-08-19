@@ -7,6 +7,7 @@
 | description | A demonstration of a malicious extension |
 | url         | https://flxn.de/scripts/csp-remote-test.js |
 | url_2       | https://flxn.de/scripts/csp-remote-secondary.js |
+| directive_2 | script-src-elem |
 
 ## Comments
 
