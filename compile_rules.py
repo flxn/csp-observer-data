@@ -2,6 +2,7 @@ import os
 import glob
 import re
 import json
+import time
 
 rules = []
 regex = r'^\|\s*([^\s|\|]+)\s*\|([^\|]+)\|\s*$'
@@ -57,6 +58,10 @@ for filename in glob.glob(rule_dir):
                 print(err)
 
 with open(output_filename, 'w') as f_out:
-    json_str = json.dumps(rules)
+    out_dict = {
+        'last_updated': time.time(),
+        'rules': rules
+    }
+    json_str = json.dumps(out_dict)
     f_out.write(json_str)
     print('\n=> Compiled {} rules to {}'.format(len(rules), output_filename))
