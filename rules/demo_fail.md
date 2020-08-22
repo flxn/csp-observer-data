@@ -5,6 +5,10 @@
 | cause       | other |
 | title       | DEMO Should Fail |
 
-## Comments
+## [Description]
+
+Bla
+
+## [Comments]
 
 This is just a demo rule for testing purposes.

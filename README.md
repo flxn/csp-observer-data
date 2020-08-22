@@ -13,7 +13,8 @@ The required fields are:
 | ----- | ----------- | --------- |
 | `cause` | The origin that caused the CSP violation. Must be one of the following: `extension` (for browser extensions), `browser` (for violations directly caused by the web browser), `malware` (if the violation can be directly attributed to malware), `other` (for all other/unknown sources) | `yes` |
 | `title` | The title of the Rule that will be shown to the user. E.g. the name of the corresponding browser extension that causes the violation. | `yes` |
-| `description` | A more detailed description of the rule that will be shown to the user. | `yes` |
+| `short_description` | A short summary of the rule that will be shown to the user. | `yes` |
+| `long_description` | The description of the rule and steps on how to get rid of the underlying problem. **May contain Markdown for formatting, but do not use the keywords `## [Description]` and `## [Comments]`.** | `yes` |
 | `url` | The url that caused the violation (blocked-uri). Must be a simple string or a valid Python RegEx expression string (for wildcard URLs) | `yes` |
 | `directive` | Can be used to apply the rule only for specific violated CSP directives. Multiple directives can be separated by commas. If the field is omitted the rule will apply to all violations that match the specified url. | `no` |
 
@@ -25,6 +26,7 @@ You can specify additional urls/directives by adding additional url/directive pa
 Below is the example markdown format of the rule file. All rules **must** follow this template so that they can be automatically parsed.
 You can view an example rule in ``rules/demo_test.md``.
 
+
 ```
 # $TITLE
 
@@ -32,19 +34,25 @@ You can view an example rule in ``rules/demo_test.md``.
 | ----------- | ----- |
 | cause       | $CAUSE |
 | title       | $TITLE |
-| description | $LONG_DESCRIPTION |
+| short_description | $SHORT_DESCRIPTION |
 | url         | $URL |
 | directive   | $DIRECTIVE |
 | url_2       | $URL_2 |
 | directive_2 | $DIRECTIVE_2 |
 
-/* You can remove the url_2/directive_2 parameters if you do not need them or add more if you need them (following the url_n/directive_n scheme) */
+<!-- You can remove the url_2/directive_2 parameters if you do not need them or add more if you need them (following the url_n/directive_n scheme) -->
 
-## Comments
+## [Description]
 
-/* You can include any custom content here. E.g. to explain how you found the violation and why you think the rule should be included. */
+$LONG_DESCRIPTION
+
+## [Comments]
+
+<!-- You can include any custom content here. It will not be visible to the user! You could use it to explain how you found the violation and why you think the rule should be included. -->
 ```
 
 Replace `$CAUSE`, `$TITLE`, etc. with the appropriate values as described under *Required Information*.
+
+Remove the `/**/`
 
 Place the file in the `rules` directory and give it a **lowercase**, **camel case** filename following the format `$CAUSE_$TITLE.md`
