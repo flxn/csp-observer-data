@@ -5,8 +5,7 @@
 | cause       | Not allowed chrome-extension scheme |
 | title       | Chrome-extension scheme |
 | short_description | Missconfiguration of chrome-extension:scheme |
-| url         | https://flxn.de/scripts/csp-remote-test.js |
-| url_2       | https://flxn.de/scripts/csp-remote-secondary.js |
+| url         | chrome-extension |
 | directive_2 | font-src |
 
 ## [Description]
