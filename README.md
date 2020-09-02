@@ -16,7 +16,7 @@ The required fields are:
 | `short_description` | A short summary of the rule that will be shown to the user. | `yes` |
 | `long_description` | The description of the rule and steps on how to get rid of the underlying problem. **May contain Markdown for formatting, but do not use the keywords `## [Description]` and `## [Comments]`.** | `yes` |
 | `url` | The url that caused the violation (blocked-uri). Must be a simple string or a valid Python RegEx expression string (for wildcard URLs) | `yes` |
-| `directive` | Can be used to apply the rule only for specific violated CSP directives. Multiple directives can be separated by commas. If the field is omitted the rule will apply to all violations that match the specified url. | `no` |
+| `directive` | Can be used to apply the rule only for specific violated CSP directives. If the field is omitted the rule will apply to all violations that match the specified url. | `no` |
 
 You can specify additional urls/directives by adding additional url/directive parameters with a number appendix (`url_n`/`directive_n`). If you have 3 different urls you would add the following fields:
 `url`, `directive`, `url_2`, `directive_2`, `url_3`, `directive_3`. The `directive` field is still optional but it has to match the numbering of the corresponding url.

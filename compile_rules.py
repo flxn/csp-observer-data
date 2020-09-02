@@ -31,7 +31,7 @@ for filename in glob.glob(rule_dir):
                     'directive': ''
                 }
             elif field.startswith('directive'):
-                directive_no = 1 if field == 'directive_no' else field.split('_')[1]
+                directive_no = 1 if field == 'directive' else field.split('_')[1]
                 if directive_no in directives:
                     directives[directive_no]['directive'] = value
         
